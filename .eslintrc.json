@@ -9,6 +9,7 @@
   },
   "rules": {
     "comma-dangle": ["error", "never"],
-    "consistent-return": 1
+    "consistent-return": 1,
+    "react/jsx-filename-extension": 0
   }
 }

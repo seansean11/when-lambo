@@ -21,7 +21,7 @@ exports.up = (knex, Promise) =>
       table.increments('id');
       table.integer('transaction_id').references('id').inTable('transactions');
       table.string('symbol');
-      table.string('side');
+      table.enum('side', ['buy', 'sell']);
       table.decimal('price', 64, 32);
       table.timestamps();
     })
