@@ -16,5 +16,11 @@ module.exports = {
     seeds: {
       directory: 'db/seeds'
     }
-  }
+  },
+  currencies: [
+    'BTC-USD',
+    'LTC-BTC',
+    'ETH-BTC',
+    'DOGE-BTC'
+  ]
 };
