@@ -1,23 +1,14 @@
 const Promise = require('bluebird');
 const bcrypt = require('bcrypt');
-
-const dbService = require('services/db.service');
-require('models/role.model');
-require('models/user-notification.model');
+const db = require('../lib/database');
 
 const promiseHash = Promise.promisify(bcrypt.hash);
 const promiseSalt = Promise.promisify(bcrypt.genSalt);
 
-const User = dbService.Model.extend({
-  tableName: 'user',
+const User = db.Model.extend({
+  tableName: 'users',
   hasTimestamps: true,
   hidden: 'password',
-  role() {
-    return this.belongsToMany('Role', 'user_role');
-  },
-  user_notifications() {
-    return this.hasMany('UserNotification');
-  },
   initialize() {
     this.on('creating', this.hashPassword, this);
   },
@@ -32,4 +23,4 @@ const User = dbService.Model.extend({
   }
 });
 
-module.exports = dbService.model('User', User);
+module.exports = db.model('User', User);
