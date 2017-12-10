@@ -1,5 +1,6 @@
 const { name, version } = require('../../package.json');
-const users = require('./users');
+const auth = require('./auth');
+const transactions = require('./transactions');
 
 module.exports = (router) => {
   router.get('/', (req, res) => {
@@ -11,7 +12,7 @@ module.exports = (router) => {
     });
   });
 
-  router.use('/users', users(router));
-
+  router.use('/auth', auth(router));
+  router.use('/transactions', transactions(router));
   return router;
 };
