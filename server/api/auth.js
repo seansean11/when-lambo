@@ -28,7 +28,7 @@ module.exports = (router) => {
           const payload = { id: user.id };
           const token = jwt.sign(payload, config.get('secret'));
 
-          res.status(200).send({ user, token });
+          res.status(200).json({ user, token });
         });
       })
       .catch(err => next(err));
