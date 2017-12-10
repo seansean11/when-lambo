@@ -4,7 +4,7 @@ const db = require('../lib/database');
 const Transaction = db.Model.extend({
   tableName: 'transactions',
   transactionMeta() {
-    return this.hasOne('Choice');
+    return this.hasOne('TransactionMeta');
   },
   hasTimestamps: true
 });

@@ -6,7 +6,7 @@ const baseUri = 'https://www.cryptopia.co.nz/api';
 function getTicker(baseSymbol, quoteSymbol) {
   const cleanBaseSymbol = baseSymbol === 'USD' ? 'USDT' : baseSymbol;
   const cleanQuoteSymbol = quoteSymbol === 'USD' ? 'USDT' : quoteSymbol;
-  const symbol = `${cleanBaseSymbol}-${cleanQuoteSymbol}`;
+  const symbol = `${cleanBaseSymbol}_${cleanQuoteSymbol}`;
 
   return request({
     uri: `${baseUri}/GetMarket/${symbol}`,

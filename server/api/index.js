@@ -2,7 +2,7 @@ const { name, version } = require('../../package.json');
 const auth = require('./auth');
 const transactions = require('./transactions');
 const tickers = require('./tickers');
-const wallets = require('./wallets');
+const balances = require('./balances');
 
 module.exports = (router) => {
   router.get('/', (req, res) => {
@@ -17,6 +17,6 @@ module.exports = (router) => {
   router.use('/auth', auth(router));
   router.use('/transactions', transactions(router));
   router.use('/tickers', tickers(router));
-  router.use('/wallets', wallets(router));
+  router.use('/balances', balances(router));
   return router;
 };

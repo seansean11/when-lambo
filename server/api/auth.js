@@ -26,7 +26,8 @@ module.exports = (router) => {
           }
 
           const payload = { id: user.id };
-          const token = jwt.sign(payload, config.get('secret'));
+          const options = { expiresIn: '3 days' };
+          const token = jwt.sign(payload, config.get('secret'), options);
 
           return res.status(200).json({ user, token });
         });

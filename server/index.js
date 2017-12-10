@@ -10,6 +10,7 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const passport = require('passport');
+const jwtStrategy = require('./lib/jwt-strategy');
 const logger = require('./lib/logger');
 const api = require('./api');
 
@@ -25,7 +26,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(passport.initialize());
-
+passport.use(jwtStrategy);
 
 if (app.get('env') !== 'test') {
   app.use(morgan('combined', { stream: logger.stream }));

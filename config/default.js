@@ -17,10 +17,17 @@ module.exports = {
       directory: 'db/seeds'
     }
   },
-  currencies: [
+  tradingPairs: [
     'BTC-USD',
     'LTC-BTC',
     'ETH-BTC',
     'DOGE-BTC'
+  ],
+  currencies: [
+    'USD',
+    'BTC',
+    'LTC',
+    'ETH',
+    'DOGE'
   ]
 };

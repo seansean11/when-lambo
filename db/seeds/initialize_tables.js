@@ -24,15 +24,15 @@ const users = [
 const transactions = [
   {
     user_id: 1,
-    USD: '1000.00'
+    USD: '10000.00'
   },
   {
     user_id: 2,
-    USD: '1000.00'
+    USD: '10000.00'
   },
   {
     user_id: 3,
-    USD: '1000.00'
+    USD: '10000.00'
   }
 ];
 
