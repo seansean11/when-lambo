@@ -1,27 +1,38 @@
 {
   "name": "when-lambo",
   "version": "0.0.1",
-  "description": "",
+  "description": "crypto trading simulation",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon ./server",
-    "client": "node start-client.js",
+    "client": "node ./scripts/start-client.js",
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "NODE_ENV=test mocha --require scripts/bootstrap-tests.js --recursive './server/test'",
+    "test:server:watch": "NODE_ENV=test mocha -w --require scripts/bootstrap-tests.js --recursive './server/test'",
+    "test:client": "node ./scripts/test-client.js "
   },
   "author": "Sean Michael",
   "devDependencies": {
     "babel-eslint": "^8.0.3",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "concurrently": "^3.5.1",
-    "eslint": "^4.12.1",
+    "dirty-chai": "^2.0.1",
+    "eslint": "^4.13.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
-    "nodemon": "^1.12.5"
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.5",
+    "sinon": "^4.1.3",
+    "sqlite3": "^3.1.13"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "bookshelf": "^0.12.0",
     "config": "^1.28.1",
@@ -30,8 +41,11 @@
     "express": "^4.16.2",
     "express-validator": "^4.3.0",
     "helmet": "^3.9.0",
+    "jsonwebtoken": "^8.1.0",
     "knex": "^0.13.0",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
     "pg": "^7.4.0",
     "winston": "^2.4.0"
   }

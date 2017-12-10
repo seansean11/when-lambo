@@ -8,6 +8,7 @@
     "browser": true
   },
   "rules": {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "consistent-return": 1
   }
 }
