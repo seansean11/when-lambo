@@ -52,6 +52,14 @@ const AssetMix = ({ data, tickers }) => {
       <Table.Body>
         {finalData.map(renderRow)}
       </Table.Body>
+      <Table.Footer>
+        <Table.Row>
+          <Table.HeaderCell />
+          <Table.HeaderCell />
+          <Table.HeaderCell>{totalUsd.toFixed(2)} USD</Table.HeaderCell>
+          <Table.HeaderCell>100%</Table.HeaderCell>
+        </Table.Row>
+      </Table.Footer>
     </Table>
   );
 };

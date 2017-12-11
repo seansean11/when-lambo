@@ -30,6 +30,6 @@ float: left;
 }
 
 .Transactions-table {
-  max-height: 325px;
+  max-height: 370px;
   overflow-y: auto;
 }
