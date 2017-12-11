@@ -8,18 +8,17 @@ const Trading = ({ tickers, balances, handleTradeSubmit }) => {
   const usdBalance = balances.find(b => b.label === 'USD');
   const btcBalance = balances.find(b => b.label === 'BTC');
   const isLoading = balances.length < 1 && tickers.length < 1;
-  console.log(tickers);
 
   return (
     <div className="Trading">
       <Header as="h1">Trading</Header>
       <Segment.Group>
+        {isLoading && <Segment loading><Header><Image alt="placeholder" src="/skeleton.png" /></Header></Segment>}
         {tickers.map((ticker, i) => (
-          <Segment loading={isLoading} key={i}>
+          <Segment key={i}>
             <Grid>
               <Grid.Row>
                 <Grid.Column width={6}>
-                  {isLoading && <Image alt="placeholder" src="/skeleton-img.png" />}
                   <h1><Icon name="circle" color={colors[i + 1]} /> {ticker.symbol}</h1>
                   <Header>
                     {ticker.price.toFixed(14)}
@@ -27,7 +26,6 @@ const Trading = ({ tickers, balances, handleTradeSubmit }) => {
                   </Header>
                 </Grid.Column>
                 <Grid.Column width={10}>
-                  {isLoading && <Image alt="placeholder" src="/skeleton.png" />}
                   <TradingForm ticker={ticker} handleTradeSubmit={handleTradeSubmit} />
                 </Grid.Column>
               </Grid.Row>
