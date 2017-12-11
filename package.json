@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
+    "db:build": "npm run db:migrate && npm run db:seed",
+    "db:migrate": "node -r dotenv/config ./node_modules/.bin/knex migrate:latest",
+    "db:seed": "node -r dotenv/config ./node_modules/.bin/knex seed:run",
     "server": "nodemon ./server",
     "client": "node ./scripts/start-client.js",
     "lint": "eslint .",
