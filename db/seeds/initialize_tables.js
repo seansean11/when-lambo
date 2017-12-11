@@ -5,19 +5,19 @@ const users = [
     first_name: 'Ludovoquito',
     last_name: 'Peluche',
     password: '$2a$10$D0awwaG9c.7HXEAxMpepmeJJElKav4CW6D5mmBzWUhZUopTZNJmg6',
-    email: 'ludovoquito@peluche.com'
+    email: 'a@a.com'
   },
   {
     first_name: 'Bibi',
     last_name: 'Peluche',
     password: '$2a$10$D0awwaG9c.7HXEAxMpepmeJJElKav4CW6D5mmBzWUhZUopTZNJmg6',
-    email: 'bibi@peluche.com'
+    email: 'b@b.com'
   },
   {
     first_name: 'Junior',
     last_name: 'Peluche',
     password: '$2a$10$D0awwaG9c.7HXEAxMpepmeJJElKav4CW6D5mmBzWUhZUopTZNJmg6',
-    email: 'junior@peluche.com'
+    email: 'c@c.com'
   }
 ];
 

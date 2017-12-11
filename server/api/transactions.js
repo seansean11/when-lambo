@@ -36,7 +36,8 @@ module.exports = (router) => {
     const symbols = req.body.symbol.split('-');
     const currencyIn = req.body.side === 'buy' ? symbols[0] : symbols[1];
     const currencyOut = req.body.side === 'buy' ? symbols[1] : symbols[0];
-    const amountOut = -Math.abs(req.body.price * req.body.amount);
+    const amountOut = req.body.side === 'buy' ? -Math.abs(req.body.price * req.body.amount) : -Math.abs(req.body.amount);
+    const amountIn = req.body.side === 'buy' ? req.body.amount : req.body.price * req.body.amount;
 
     checkAvailableFunds({ currency: currencyOut, amount: amountOut, id: req.user.id })
       .then((hasSufficientFunds) => {
@@ -46,7 +47,7 @@ module.exports = (router) => {
 
         const transaction = new Transaction({
           user_id: req.user.id,
-          [currencyIn]: req.body.amount,
+          [currencyIn]: amountIn,
           [currencyOut]: amountOut
         });
 
@@ -66,7 +67,7 @@ module.exports = (router) => {
   });
 
   router.get('/transactions', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-    new Transaction().where({ user_id: req.params.userId })
+    new Transaction().where({ user_id: req.user.id })
       .fetchAll({ withRelated: ['transactionMeta'] })
       .then(data => res.status(200).json(data))
       .catch(err => next(err));
