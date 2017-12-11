@@ -13,3 +13,5 @@
 
 ## Run
 1. Run `npm start` from the root directory
+2. Choose an email address and passwords in the `db/seeds` file and log in
+  - **All of the dev passwords are just `p@ssw0rd`**
