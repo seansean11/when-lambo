@@ -21,7 +21,7 @@ const Trading = ({ tickers, balances, handleTradeSubmit }) => {
                 <Grid.Column width={6}>
                   <h1><Icon name="circle" color={colors[i + 1]} /> {ticker.symbol}</h1>
                   <Header>
-                    {ticker.price.toFixed(14)}
+                    {(ticker.symbol === 'BTC-USD') ? ticker.price.toFixed(2) : ticker.price.toFixed(14)}
                     <Label className="Trading-tag" tag>{(ticker.symbol === 'BTC-USD') ? 'USD' : 'BTC'}</Label>{' '}
                   </Header>
                 </Grid.Column>
