@@ -15,7 +15,11 @@ class App extends Component {
   componentDidMount() {
     // Polling every 30sec
     this.getData();
-    setTimeout(this.getData, 30000);
+    this.dataPolling = setInterval(this.getData, 30000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.dataPolling);
   }
 
   getData() {
@@ -24,7 +28,11 @@ class App extends Component {
       getBalances(),
       getTransactions()
     ])
-      .then(([tickers, balances, transactions]) => this.setState({ tickers, balances, transactions }))
+      .then(([tickers, balances, transactions]) => this.setState({
+        tickers,
+        balances,
+        transactions
+      }))
       .catch(err => console.log(err));
   }
 
